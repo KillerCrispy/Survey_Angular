@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="193.992" height="180.783" viewBox="0 0 193.992 180.783">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+        stroke: #1d1d1b;
+        stroke-miterlimit: 10;
+        stroke-width: 2px;
+      }
+    </style>
+  </defs>
+  <g id="Ebene_2" data-name="Ebene 2">
+    <path id="Form_51" data-name="Form 51" class="cls-1" d="M189.42,168.931l-26.7-46.159H136.153l13.282,23-.029.051H122.727l-13.34-23.105,13.34-23.1H149.4L97,8.848,69.89,55.8,83.155,78.773l13.282-23H96.5l13.339,23.1L96.5,101.978H69.816L56.522,78.952,4.572,168.931h52.4l-.029-.05,13.282-23H43.667l-.029-.05,13.339-23.105H83.656L97,145.827l-13.34,23.1Z"/>
+  </g>
+</svg>
