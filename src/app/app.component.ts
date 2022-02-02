@@ -11,6 +11,7 @@ import {
 import { surveyJson } from './../survey';
 import { HttpClient } from '@angular/common/http';
 import { inject } from '@angular/core/testing';
+import { take } from 'rxjs';
 
 
 
@@ -50,7 +51,7 @@ export class AppComponent implements OnInit {
  
 
   //constructor(private.document:.document) {}
-  constructor(@Inject(DOCUMENT) private document: Document) {}
+  constructor(@Inject(DOCUMENT) private document: Document,private httpClient: HttpClient) {}
 
   //@Inject(DOCUMENT) private httpClient: HttpClient
 
@@ -114,7 +115,12 @@ export class AppComponent implements OnInit {
         const Lieblingsfarbe = this.document.getElementById('question.inputID');
       }
 
-    });
+    }
+
+   
+    
+
+    );
 
     // sobald seite gerendert wurde, svg anhand von id suchen und einfärben
     survey.onAfterRenderPage.add((survey: SurveyModel, options: any) => {
@@ -157,14 +163,17 @@ export class AppComponent implements OnInit {
 
     });
 
+    survey.onComplete.add(this.onSubmit);
+
+    
 
   }
 
   onSubmit(){
     
-    this.document.post(
+    this.httpClient.post(
       'https://umfrage-technische-visualistik-default-rtdb.europe-west1.firebasedatabase.app/users.json',
-      this.color)
+      this.color).pipe(take(1))
       .subscribe(response => console.log(response));
     
   }
