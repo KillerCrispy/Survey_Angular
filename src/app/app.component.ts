@@ -12,6 +12,8 @@ import { surveyJson } from './../survey';
 import { HttpClient } from '@angular/common/http';
 import { inject } from '@angular/core/testing';
 import { take } from 'rxjs';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+
 
 
 
@@ -51,7 +53,7 @@ export class AppComponent implements OnInit {
  
 
   //constructor(private.document:.document) {}
-  constructor(@Inject(DOCUMENT) private document: Document,private httpClient: HttpClient) {}
+  constructor(@Inject(DOCUMENT) private document: Document, private httpClient: HttpClient, private Firestore: AngularFirestore) {}
 
   //@Inject(DOCUMENT) private httpClient: HttpClient
 
@@ -163,18 +165,21 @@ export class AppComponent implements OnInit {
 
     });
 
-    survey.onComplete.add(this.onSubmit);
+    survey.onComplete.add(()=>this.onSubmit());
 
     
 
   }
 
   onSubmit(){
+
+    console.log(this.httpClient);
     
-    this.httpClient.post(
-      'https://umfrage-technische-visualistik-default-rtdb.europe-west1.firebasedatabase.app/users.json',
-      this.color).pipe(take(1))
-      .subscribe(response => console.log(response));
+const Daten = {'Lieblingsfarbe':this.color,
+'Geburtstag':this.birthdate }
+this.Firestore.collection('users').add(Daten);
+
+
     
   }
   }

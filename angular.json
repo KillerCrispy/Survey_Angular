@@ -107,6 +107,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "survey-visualistik:build:production",
+            "firebaseProject": "umfrage-technische-visualistik",
+            "firebaseHostingSite": "umfrage-technische-visualistik"
+          }
         }
       }
     }

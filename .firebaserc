@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "umfrage-technische-visualistik": {
+      "hosting": {
+        "survey-visualistik": [
+          "umfrage-technische-visualistik"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "umfrage-technische-visualistik"
+  }
+}
